@@ -5,10 +5,10 @@
     <body>
        <table>
            <tr>
-               {% for link in topLinks %}
+               {% for link in top_links %}
               <td>
-                  <a href="{{ link.href }}">
-                      {{ link.name }}
+                  <a href="{{ link['href'] }}">
+                      {{ link['name'] }}
                   </a>
                </td>
                {% endfor %}

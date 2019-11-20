@@ -5,7 +5,9 @@
     {% for post in posts %}
     <tr>
         <td>
-            {{ post['data'] }}
+            <a href="./posts/{{ post['index'] }}">
+                {{ post['title'] }}
+            </a>
         </td>
     </tr>
     {% endfor %}
