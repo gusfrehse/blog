@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title> {{ title }} </title>
+    </head>
+    <body>
+       <table>
+           <tr>
+               {% for link in topLinks %}
+              <td>
+                  <a href="{{ link.href }}">
+                      {{ link.name }}
+                  </a>
+               </td>
+               {% endfor %}
+           </tr>
+       </table>
+       <hr>
+       {% block content %}{% endblock %}
+    </body>
+</html>
