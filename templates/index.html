@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<table>
+<header>
+    <h1>Welcome to my blog.</h1>
+    <aside>it's very good</aside>
+</header>
+<h2>Latest posts</h2>
+<ul>
     {% for post in posts %}
-    <tr>
-        <td>
+    <li>
             {{ post['data'] }}
-        </td>
-    </tr>
+    </li>
     {% endfor %}
-</table>
+</ul>
 {% endblock %}
