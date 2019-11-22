@@ -1,21 +1,23 @@
 #!/usr/bin/env/python3
 
+import os
+
 from flask import Flask, render_template
 
 app = Flask(__name__)
 
-posts = [
-    {
-        'index':'0',
-        'title':'firs post!',
-        'data':'this is a post cool massa tesão'
-    },
-    {
-        'index':'1',
-        'title':'second post',
-        'data':'this is another post haha'
-    }
-]
+# Read posts directory
+path = './posts'
+posts = []
+with os.scandir(path) as it:
+    post_index = 0
+    for entry in it:
+        if entry.is_file():
+            with open(entry.path) as post:
+                posts.append({'index':post_index,
+                              'title':str(post_index),
+                              'data':post.read()})
+
 
 links = [
     {
@@ -46,7 +48,8 @@ def show_posts():
 
 @app.route("/posts/<int:index>")
 def show_post(index):
-    return "this is post number %s" % index
+    return render_template('post.html', title='post',
+                           post=posts[index], top_links=links)
 
 if __name__ == "__main__":
     app.run(threaded=True, port=5000)
