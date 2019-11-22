@@ -1,15 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
+<header>
+    <h1>All my posts</h1>
+    <aside>In chronological order.</aside>
+</header>
 <table>
-    {% for post in posts %}
-    <tr>
-        <td>
+    <ul>
+        {% for post in posts %}
+        <li>
             <a href="./posts/{{ post['index'] }}">
                 {{ post['title'] }}
             </a>
-        </td>
-    </tr>
-    {% endfor %}
+        </li>
+        {% endfor %}
+    </ul>
 </table>
 {% endblock %}
