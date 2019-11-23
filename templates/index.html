@@ -9,7 +9,9 @@
 <ul>
     {% for post in posts %}
     <li>
-            {{ post['data'] }}
+        <a href="/posts/{{ post['index'] }}">
+            {{ post['title'] }}
+        </a>
     </li>
     {% endfor %}
 </ul>
